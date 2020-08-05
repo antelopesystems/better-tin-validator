@@ -1,4 +1,4 @@
-const countriesData = require("./countries-data.js");
+const { countriesData } = require("./countries-data.js");
 
 const tinValidator = (function() {
 
