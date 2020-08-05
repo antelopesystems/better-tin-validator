@@ -1,0 +1,19 @@
+{
+  "name": "tin-validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antelopesystems/tin-validator.git"
+  },
+  "author": "Antelope Systems Dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antelopesystems/tin-validator/issues"
+  },
+  "homepage": "https://github.com/antelopesystems/tin-validator#readme"
+}
