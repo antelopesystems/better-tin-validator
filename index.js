@@ -1,3 +1,3 @@
-const { tinValidator } = require("./src/tin-validator");
+const { validateCountryTin } = require("./src/tin-validator");
 
-module.exports = { tinValidator };
+module.exports = validateCountryTin;
