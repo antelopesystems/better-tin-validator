@@ -1114,8 +1114,8 @@ const countriesData = {
 	}
   };
   
-  function testRegex(stringToCheck, regex) {
-	const regex = new RegExp("^" + regex.source + "$");
+  function testRegex(stringToCheck, regexLiteral) {
+	const regex = new RegExp("^" + regexLiteral.source + "$");
 	return regex.test(stringToCheck);
   }
   
