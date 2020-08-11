@@ -57,7 +57,7 @@ const countriesData = {
 	},
 	AT: {
 	  name: "Austria",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{9}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]]
 	},
 	AZ: {
 	  name: "Azerbaijan",
@@ -229,13 +229,13 @@ const countriesData = {
 	},
 	CZ: {
 	  name: "Czech Republic",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{9,10}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9,10}/)]]
 	},
 	DK: {
 	  name: "Denmark",
 	  tinRules: [
-		[tinString => testRegex(tinString, "[0-9]{6}-?[0-9]{4}")],
-		[tinString => testRegex(tinString, "(CVR|SE)\\s?[0-9]{8}")]
+		[tinString => testRegex(tinString, /[0-9]{6}-?[0-9]{4}/)],
+		[tinString => testRegex(tinString, /(CVR|SE)\s?[0-9]{8}/)]
 	  ]
 	},
 	DJ: {
@@ -295,9 +295,9 @@ const countriesData = {
 	  tinRules: [
 		[
 		  tinString =>
-			testRegex(tinString, "[0-9]{6}(-|\\+|A)[0-9]{3}[A-Za-z0-9]{1}")
+			testRegex(tinString, /[0-9]{6}(-|\+|A)[0-9]{3}[A-Za-z0-9]{1}/)
 		],
-		[tinString => testRegex(tinString, "[0-9]{7}-[0-9]{1}")]
+		[tinString => testRegex(tinString, /[0-9]{7}-[0-9]{1}/)]
 	  ]
 	},
 	FR: {
@@ -330,7 +330,7 @@ const countriesData = {
 	},
 	DE: {
 	  name: "Germany",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{11}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]]
 	},
 	GH: {
 	  name: "Ghana",
@@ -399,10 +399,10 @@ const countriesData = {
 	HK: {
 	  name: "Hong Kong",
 	  tinRules: [
-		[tinString => testRegex(tinString, "[A-Z]{1,2}[0-9]{6}([0-9]|A){1}")],
+		[tinString => testRegex(tinString, /[A-Z]{1,2}[0-9]{6}([0-9]|A){1}/)],
 		[
 		  tinString =>
-			testRegex(tinString, "[0-9]{8}-[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{1}")
+			testRegex(tinString, /[0-9]{8}-[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{1}/)
 		]
 	  ]
 	},
@@ -433,8 +433,8 @@ const countriesData = {
 	IE: {
 	  name: "Ireland",
 	  tinRules: [
-		[tinString => testRegex(tinString, "[0-9]{7}[A-Za-z]{1,2}")],
-		[tinString => testRegex(tinString, "CHY[0-9]{1,5}")]
+		[tinString => testRegex(tinString, /[0-9]{7}[A-Za-z]{1,2}/)],
+		[tinString => testRegex(tinString, /CHY[0-9]{1,5}/)]
 	  ]
 	},
 	IM: {
@@ -519,7 +519,7 @@ const countriesData = {
 	},
 	LT: {
 	  name: "Lithuania",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{11}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]]
 	},
 	LU: {
 	  name: "Luxembourg",
@@ -544,8 +544,8 @@ const countriesData = {
 	MY: {
 	  name: "Malaysia",
 	  tinRules: [
-		[tinString => testRegex(tinString, "(SG|OG)\\s[0-9]{1,10}[0-1]{1}")],
-		[tinString => testRegex(tinString, "[A-Za-z]{1,2}\\s[0-9]{1,10}")]
+		[tinString => testRegex(tinString, /(SG|OG)\s[0-9]{1,10}[0-1]{1}/)],
+		[tinString => testRegex(tinString, /[A-Za-z]{1,2}\s[0-9]{1,10}/)]
 	  ]
 	},
 	MV: {
@@ -636,7 +636,7 @@ const countriesData = {
 	  name: "Netherlands",
 	  tinRules: [
 		[
-		  tinString => testRegex(tinString, "[0-9]{9}"),
+		  tinString => testRegex(tinString, /[0-9]{9}/),
 		  tinString => {
 			const remainder = modulus11CheckDigit(tinString, 8);
 			return remainder == tinString[8];
@@ -683,9 +683,9 @@ const countriesData = {
 	NO: {
 	  name: "Norway",
 	  tinRules: [
-		[tinString => testRegex(tinString, "[0-9]{11}")],
+		[tinString => testRegex(tinString, /[0-9]{11}/)],
 		[
-		  tinString => testRegex(tinString, "[8-9]{1}[0-9]{7}[0-9]{1}(MVA)?"),
+		  tinString => testRegex(tinString, /[8-9]{1}[0-9]{7}[0-9]{1}(MVA)?/),
 		  tinString => {
 			tinString = tinString.substring(0, 9);
 			const remainder = modulus11CheckDigit(tinString, 8, [
@@ -838,29 +838,29 @@ const countriesData = {
 	SG: {
 	  name: "Singapore",
 	  tinRules: [
-		[tinString => testRegex(tinString, "[0-9]{8}[A-Za-z]{1}")],
-		[tinString => testRegex(tinString, "[0-9]{9}[A-Za-z]{1}")],
+		[tinString => testRegex(tinString, /[0-9]{8}[A-Za-z]{1}/)],
+		[tinString => testRegex(tinString, /[0-9]{9}[A-Za-z]{1}/)],
 		[
-		  tinString => testRegex(tinString, "F(000|\\s\\s\\s)[0-9]{5}[A-Za-z]{1}")
+		  tinString => testRegex(tinString, /F(000|\s\s\s)[0-9]{5}[A-Za-z]{1}/)
 		],
 		[
 		  tinString =>
-			testRegex(tinString, "(S|T)[0-9]{2}[A-Za-z]{2}[0-9]{4}[A-Za-z]{1}")
+			testRegex(tinString, /(S|T)[0-9]{2}[A-Za-z]{2}[0-9]{4}[A-Za-z]{1}/)
 		],
-		[tinString => testRegex(tinString, "A[0-9]{7}[A-Za-z]{1}")],
-		[tinString => testRegex(tinString, "4[0-9]{8}[A-Za-z]{1}")],
-		[tinString => testRegex(tinString, "(S|T|F|G)[0-9]{7}[A-Za-z]{1}")]
+		[tinString => testRegex(tinString, /A[0-9]{7}[A-Za-z]{1}/)],
+		[tinString => testRegex(tinString, /4[0-9]{8}[A-Za-z]{1}/)],
+		[tinString => testRegex(tinString, /(S|T|F|G)[0-9]{7}[A-Za-z]{1}/)]
 	  ]
 	},
 	SK: {
 	  name: "Slovakia",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{9,10}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9,10}/)]]
 	},
 	SI: {
 	  name: "Slovenia",
 	  tinRules: [
 		[
-		  tinString => testRegex(tinString, "[1-9]{1}[0-9]{6}([0-9]|X){1}"),
+		  tinString => testRegex(tinString, /[1-9]{1}[0-9]{6}([0-9]|X){1}/),
 		  tinString => {
 			const remainder = modulus11CheckDigit(tinString, 7);
 			return (
@@ -881,7 +881,7 @@ const countriesData = {
 	},
 	ZA: {
 	  name: "South Africa",
-	  tinRules: [[tinString => testRegex(tinString, "([0-3]|9){1}[0-9]{9}")]]
+	  tinRules: [[tinString => testRegex(tinString, /([0-3]|9){1}[0-9]{9}/)]]
 	},
 	GS: {
 	  name: "South Georgia And Sandwich Isl.",
@@ -913,7 +913,7 @@ const countriesData = {
 	},
 	SE: {
 	  name: "Sweden",
-	  tinRules: [[tinString => testRegex(tinString, "[0-9]{6}(-|\\+)[0-9]{4}")]]
+	  tinRules: [[tinString => testRegex(tinString, /[0-9]{6}(-|\+)[0-9]{4}/)]]
 	},
 	CH: {
 	  name: "Switzerland",
@@ -922,7 +922,7 @@ const countriesData = {
 		  tinString =>
 			testRegex(
 			  tinString,
-			  "[0-9]{3}\\.[0-9]{4}\\.[0-9]{4}\\.[0-9]{1}([0-9]|X){1}"
+			  /[0-9]{3}\.[0-9]{4}\.[0-9]{4}\.[0-9]{1}([0-9]|X){1}/
 			),
 		  tinString => {
 			tinString = tinString
@@ -938,7 +938,7 @@ const countriesData = {
 		],
 		[
 		  tinString =>
-			testRegex(tinString, "[0-9]{3}[0-9]{4}[0-9]{4}[0-9]{1}([0-9]|X){1}"),
+			testRegex(tinString, /[0-9]{3}[0-9]{4}[0-9]{4}[0-9]{1}([0-9]|X){1}/),
 		  tinString => {
 			tinString = tinString.substring(3);
 			const remainder = modulus11CheckDigit(tinString, 9);
@@ -952,7 +952,7 @@ const countriesData = {
 		  tinString =>
 			testRegex(
 			  tinString,
-			  "CHE-[0-9]{3}\\.[0-9]{3}\\.[0-9]{2}([0-9]|X){1}"
+			  /CHE-[0-9]{3}\.[0-9]{3}\.[0-9]{2}([0-9]|X){1}/
 			),
 		  tinString => {
 			tinString = tinString
@@ -968,7 +968,7 @@ const countriesData = {
 		],
 		[
 		  tinString =>
-			testRegex(tinString, "CHE[0-9]{3}[0-9]{3}[0-9]{2}([0-9]|X){1}"),
+			testRegex(tinString, /CHE[0-9]{3}[0-9]{3}[0-9]{2}([0-9]|X){1}/),
 		  tinString => {
 			tinString = tinString.substring(3);
 			const remainder = modulus11CheckDigit(tinString, 8);
@@ -1114,8 +1114,8 @@ const countriesData = {
 	}
   };
   
-  function testRegex(stringToCheck, regexString) {
-	const regex = new RegExp("^" + regexString + "$", "g");
+  function testRegex(stringToCheck, regex) {
+	const regex = new RegExp("^" + regex.source + "$");
 	return regex.test(stringToCheck);
   }
   
