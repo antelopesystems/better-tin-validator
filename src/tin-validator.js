@@ -6,26 +6,29 @@ const validateCountryTin = (dataToValidate, countryIso) => {
   if (countryData) {
     let isTinValid = false;
 
-    countryData.tinRules.forEach(tinRule => {
-      if (!isTinValid) {
-        let areAllRuleFunctionsValid = true;
+    if(countryData.tinRules.length > 0) {
+      countryData.tinRules.forEach(tinRule => {
+        if (!isTinValid) {
+          let areAllRuleFunctionsValid = true;
 
-        tinRule.forEach(ruleFunction => {
-          if (areAllRuleFunctionsValid) {
-            try {
-              areAllRuleFunctionsValid = ruleFunction.call(
-                this,
-                dataToValidate
-              );
-            } catch (e) {
-              areAllRuleFunctionsValid = false;
+          tinRule.forEach(ruleFunction => {
+            if (areAllRuleFunctionsValid) {
+              try {
+                areAllRuleFunctionsValid = ruleFunction.call(
+                  this,
+                  dataToValidate
+                );
+              } catch (e) {
+                areAllRuleFunctionsValid = false;
+              }
             }
-          }
-        });
-        isTinValid = areAllRuleFunctionsValid;
-      }
-    });
-
+          });
+          isTinValid = areAllRuleFunctionsValid;
+        }
+      });
+    } else {
+      isTinValid = true;
+    }
     return isTinValid;
   } else {
     throw "Invalid country ISO";
