@@ -1,10 +1,11 @@
 {
   "name": "better-tin-validator",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/antelopesystems/better-tin-validator/issues"
   },
-  "homepage": "https://github.com/antelopesystems/better-tin-validator#readme"
+  "homepage": "https://github.com/antelopesystems/better-tin-validator#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
 }
