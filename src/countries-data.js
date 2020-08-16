@@ -638,7 +638,8 @@ const countriesData = {
 		[
 		  tinString => testRegex(tinString, /[0-9]{9}/),
 		  tinString => {
-			const remainder = modulus11CheckDigit(tinString, 8);
+			const modulus11Remainder = modulus11CheckDigit(tinString, 8);
+			const remainder = modulus11Remainder === 0 ? 0 : 11 - modulus11Remainder;
 			return remainder == tinString[8];
 		  }
 		]

@@ -646,7 +646,8 @@ var countriesData = {
 		tinRules: [[function (tinString) {
 			return testRegex(tinString, /[0-9]{9}/);
 		}, function (tinString) {
-			var remainder = modulus11CheckDigit(tinString, 8);
+			var modulus11Remainder = modulus11CheckDigit(tinString, 8);
+			var remainder = modulus11Remainder === 0 ? 0 : 11 - modulus11Remainder;
 			return remainder == tinString[8];
 		}]]
 	},
