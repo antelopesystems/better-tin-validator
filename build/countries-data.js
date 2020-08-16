@@ -1088,7 +1088,12 @@ function modulus11CheckDigit(stringToCheck, checkDigitPosition) {
 	var multipliedDigitsSum = multipliedDigits.reduce(function (a, b) {
 		return a + b;
 	});
-	return 11 - multipliedDigitsSum % 11;
+	var mod11Result = multipliedDigitsSum % 11;
+	if (mod11Result === 0) {
+		return 0;
+	} else {
+		return 11 - mod11Result;
+	}
 }
 
 module.exports = { countriesData: countriesData };

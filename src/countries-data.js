@@ -1133,7 +1133,12 @@ const countriesData = {
 		weightingFactors[weightingFactors.length - digitsToCheck.length + index]
 	);
 	const multipliedDigitsSum = multipliedDigits.reduce((a, b) => a + b);
-	return 11 - (multipliedDigitsSum % 11);
+	const mod11Result = multipliedDigitsSum % 11;
+	if(mod11Result === 0) {
+		return 0;
+	} else {
+		return 11 - mod11Result;
+	}
   }
   
   module.exports = { countriesData };
