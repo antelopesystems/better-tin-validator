@@ -35,4 +35,4 @@ const validateCountryTin = (dataToValidate, countryIso) => {
   }
 };
 
-module.exports = { validateCountryTin };
+module.exports = { validateCountryTin, countriesData };

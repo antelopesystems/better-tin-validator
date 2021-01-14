@@ -35,4 +35,4 @@ var validateCountryTin = function validateCountryTin(dataToValidate, countryIso)
   }
 };
 
-module.exports = { validateCountryTin: validateCountryTin };
+module.exports = { validateCountryTin: validateCountryTin, countriesData: countriesData };

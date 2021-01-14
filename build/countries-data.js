@@ -23,7 +23,13 @@ var countriesData = {
 	},
 	AD: {
 		name: "Andorra",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /F-[0-6]{1}[0-9]{5}-[A-Za-z]{1}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(A|L)-7[0-9]{5}-[A-Za-z]{1}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(C|D|E|G|O|P|U)-[0-9]{6}-[A-Za-z]{1}/);
+		}]]
 	},
 	AO: {
 		name: "Angola",
@@ -43,7 +49,9 @@ var countriesData = {
 	},
 	AR: {
 		name: "Argentina",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /(20|23|24|25|26|27|30|33)[0-9]{9}/);
+		}]]
 	},
 	AM: {
 		name: "Armenia",
@@ -51,11 +59,28 @@ var countriesData = {
 	},
 	AW: {
 		name: "Aruba",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{8}/);
+		}]]
 	},
 	AU: {
 		name: "Australia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{8,9}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{11}/);
+		}, function (tinString) {
+			var weightingFactors = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+			var digitsToCheck = tinString.split("");
+			digitsToCheck[0]--;
+			var multipliedDigits = digitsToCheck.map(function (digit, index) {
+				return digit * weightingFactors[weightingFactors.length - digitsToCheck.length + index];
+			});
+			var multipliedDigitsSum = multipliedDigits.reduce(function (a, b) {
+				return a + b;
+			});
+			return multipliedDigitsSum % 89 === 0;
+		}]]
 	},
 	AT: {
 		name: "Austria",
@@ -89,7 +114,9 @@ var countriesData = {
 	},
 	BE: {
 		name: "Belgium",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{10,11}/);
+		}]]
 	},
 	BZ: {
 		name: "Belize",
@@ -125,7 +152,11 @@ var countriesData = {
 	},
 	BR: {
 		name: "Brazil",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}-[0-9]{2}/);
+		}]]
 	},
 	IO: {
 		name: "British Indian Ocean Territory",
@@ -133,11 +164,21 @@ var countriesData = {
 	},
 	BN: {
 		name: "Brunei Darussalam",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /00-0(?!00000)([0-7][0-9]{4}|80000)/);
+		}], [function (tinString) {
+			return testRegex(tinString, /00-1(?!10000)([1-2][0-9]{4}|30000)/);
+		}], [function (tinString) {
+			return testRegex(tinString, /00-(?!250000|6[6-9][0-9]{4}|65[0-9]{3}[1-9])([2-6][0-9]{5})/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(P|RC|RFC)[0-9]{8}/);
+		}]]
 	},
 	BG: {
 		name: "Bulgaria",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{9,10}/);
+		}]]
 	},
 	BF: {
 		name: "Burkina Faso",
@@ -157,7 +198,13 @@ var countriesData = {
 	},
 	CA: {
 		name: "Canada",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{9}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{9}[A-Za-z]{2}[0-9]{4}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /T[0-9]{8}/);
+		}]]
 	},
 	CV: {
 		name: "Cape Verde",
@@ -177,11 +224,25 @@ var countriesData = {
 	},
 	CL: {
 		name: "Chile",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{2}\.[0-9]{3}\.[0-9]{3}-([0-9]|K)/);
+		}, function (tinString) {
+			tinString = tinString.split(".").join("").split("-").join("");
+			var modulus11Result = modulus11CheckDigit(tinString, 8, [3, 2, 7, 6, 5, 4, 3, 2]);
+			return modulus11Result == tinString[8] || tinString[8] === "K" && modulus11Result === 10;
+		}]]
 	},
 	CN: {
 		name: "China",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{15}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{8}[0-9A-Za-z]{10}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(C|W|H|M|T)[0-9]{16}[0-9A-Za-z]/);
+		}], [function (tinString) {
+			return testRegex(tinString, /J[0-9]{14}/);
+		}]]
 	},
 	CX: {
 		name: "Christmas Island",
@@ -193,7 +254,15 @@ var countriesData = {
 	},
 	CO: {
 		name: "Colombia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[1-9][0-9]{3}[0-9]{3}[0-9]{3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[1-9]\.[0-9]{3}\.[0-9]{3}\.[0-9]{3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(?!00000000)[0-9]{2}[0-9]{3}[0-9]{3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(?!00.000.000)[0-9]{2}\.[0-9]{3}\.[0-9]{3}/);
+		}]]
 	},
 	KM: {
 		name: "Comoros",
@@ -209,11 +278,19 @@ var countriesData = {
 	},
 	CK: {
 		name: "Cook Islands",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{5}/);
+		}]]
 	},
 	CR: {
 		name: "Costa Rica",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]-[0-9]{4}-[0-9]{4}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]-[0-9]{3}-[0-9]{6}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{11,12}/);
+		}]]
 	},
 	CI: {
 		name: "Cote D'Ivoire",
@@ -221,7 +298,20 @@ var countriesData = {
 	},
 	HR: {
 		name: "Croatia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{11}/);
+		}, function (tinString) {
+			var numbersToCheck = tinString.substring(0, 10).split("");
+			var previousMod11Result = 10;
+			numbersToCheck.forEach(function (digit) {
+				var mod10Result = (parseInt(digit) + previousMod11Result) % 10;
+				if (mod10Result === 0) {
+					mod10Result = 10;
+				}
+				previousMod11Result = mod10Result * 2 % 11;
+			});
+			return 11 - previousMod11Result == tinString[10];
+		}]]
 	},
 	CU: {
 		name: "Cuba",
@@ -229,7 +319,9 @@ var countriesData = {
 	},
 	CY: {
 		name: "Cyprus",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{8}[A-Z]/);
+		}]]
 	},
 	CZ: {
 		name: "Czech Republic",
@@ -259,7 +351,12 @@ var countriesData = {
 	},
 	EC: {
 		name: "Ecuador",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{10}001/);
+		}, function (tinString) {
+			var modulus11Result = luhnChecksum(tinString, 9);
+			return modulus11Result == tinString[9];
+		}]]
 	},
 	EG: {
 		name: "Egypt",
@@ -279,7 +376,11 @@ var countriesData = {
 	},
 	EE: {
 		name: "Estonia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{11}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(1|8|9)[0-9]{7}/);
+		}]]
 	},
 	ET: {
 		name: "Ethiopia",
@@ -291,7 +392,9 @@ var countriesData = {
 	},
 	FO: {
 		name: "Faroe Islands",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{6}-?[0-9]{3}/);
+		}]]
 	},
 	FJ: {
 		name: "Fiji",
@@ -307,7 +410,15 @@ var countriesData = {
 	},
 	FR: {
 		name: "France",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-3][0-9]{12}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-3][0-9]\s[0-9]{2}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{9}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{3}\s[0-9]{3}\s[0-9]{3}/);
+		}]]
 	},
 	GF: {
 		name: "French Guiana",
@@ -331,7 +442,9 @@ var countriesData = {
 	},
 	GE: {
 		name: "Georgia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{7}/);
+		}]]
 	},
 	DE: {
 		name: "Germany",
@@ -345,15 +458,23 @@ var countriesData = {
 	},
 	GI: {
 		name: "Gibraltar",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{1,6}/);
+		}]]
 	},
 	GR: {
 		name: "Greece",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{9}/);
+		}]]
 	},
 	GL: {
 		name: "Greenland",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{6}-?[0-9]{3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{8}/);
+		}]]
 	},
 	GD: {
 		name: "Grenada",
@@ -373,7 +494,23 @@ var countriesData = {
 	},
 	GG: {
 		name: "Guernsey",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /GY[0-9]{6}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[A-Za-z]{2}[0-9]{6}(A|B|C|D)/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[A-Za-z]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s(A|B|C|D)/);
+		}], [function (tinString) {
+			return testRegex(tinString, /JY[0-9]{6}[A-Za-z]/);
+		}], [function (tinString) {
+			return testRegex(tinString, /JY\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[A-Za-z]/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(?!0)[0-9]{1,6}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(?!0)[0-9]{1,3}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(CH|NP)[0-9]{1,3}/);
+		}]]
 	},
 	GN: {
 		name: "Guinea",
@@ -413,19 +550,59 @@ var countriesData = {
 	},
 	HU: {
 		name: "Hungary",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /8[0-9]{9}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{8}-(1|2)-[0-9]{2}/);
+		}]]
 	},
 	IS: {
 		name: "Iceland",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{6}-?[0-9]{4}/);
+		}, function (tinString) {
+			tinString = tinString.split("-").join("");
+			var modulus11Result = modulus11CheckDigit(tinString, 8, [3, 2, 7, 6, 5, 4, 3, 2]);
+			return modulus11Result == tinString[8];
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{6}-?[0-9]{4}/);
+		}, function (tinString) {
+			// Same modulus 11 algorithm but requires adding 4 to the first digit before multiplying
+			tinString = tinString.split("-").join("");
+			var digitsToCheck = tinString.substring(0, 8).split("");
+			var weightingFactors = [3, 2, 7, 6, 5, 4, 3, 2];
+			var multipliedDigits = digitsToCheck.map(function (digit, index) {
+				if (index === 0) {
+					digit = parseInt(digit) + 4;
+				}
+				return digit * weightingFactors[weightingFactors.length - digitsToCheck.length + index];
+			});
+			var multipliedDigitsSum = multipliedDigits.reduce(function (a, b) {
+				return a + b;
+			});
+			var remainder = multipliedDigitsSum % 11;
+
+			var modulus11Result = void 0;
+			if (remainder === 0) {
+				modulus11Result = 0;
+			} else {
+				modulus11Result = 11 - remainder;
+			}
+
+			return modulus11Result == tinString[8];
+		}]]
 	},
 	IN: {
 		name: "India",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[A-Z]{3}(P|F|C|H|A|T|B|L|J|G)[A-Z](?!0000)[0-9]{4}[A-Z]/);
+		}]]
 	},
 	ID: {
 		name: "Indonesia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{2}\.[0-9]{3}\.[0-9]{3}\.[0-9]-[0-9]{3}\.[0-9]{3}/);
+		}]]
 	},
 	IR: {
 		name: "Iran, Islamic Republic Of",
@@ -445,15 +622,27 @@ var countriesData = {
 	},
 	IM: {
 		name: "Isle Of Man",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /(H|C|X)[0-9]{6}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(H|C|X)[0-9]{6}-[0-9]{2}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[A-Za-z]{2}[0-9]{6}(A|B|C|D)/);
+		}]]
 	},
 	IL: {
 		name: "Israel",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{9}/);
+		}]]
 	},
 	IT: {
 		name: "Italy",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{11}/);
+		}]]
 	},
 	JM: {
 		name: "Jamaica",
@@ -461,11 +650,17 @@ var countriesData = {
 	},
 	JP: {
 		name: "Japan",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{12,13}/);
+		}]]
 	},
 	JE: {
 		name: "Jersey",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[A-Za-z]{2}[0-9]{6}(A|B|C|D)/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(C|D|E)[A-Za-z][0-9]{1,5}/);
+		}]]
 	},
 	JO: {
 		name: "Jordan",
@@ -485,11 +680,17 @@ var countriesData = {
 	},
 	KR: {
 		name: "Korea",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /(?!0|100)[0-9]{3}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}[0-9]/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{6}-[0-9]{7}/);
+		}]]
 	},
 	KW: {
 		name: "Kuwait",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{12}/);
+		}]]
 	},
 	KG: {
 		name: "Kyrgyzstan",
@@ -501,7 +702,13 @@ var countriesData = {
 	},
 	LV: {
 		name: "Latvia",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{6}(0|1|2)[0-9]{4}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /(4000|5000|9000)[0-9]{7}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /32[0-9]{9}/);
+		}]]
 	},
 	LB: {
 		name: "Lebanon",
@@ -521,7 +728,9 @@ var countriesData = {
 	},
 	LI: {
 		name: "Liechtenstein",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{1,12}/);
+		}]]
 	},
 	LT: {
 		name: "Lithuania",
@@ -531,7 +740,18 @@ var countriesData = {
 	},
 	LU: {
 		name: "Luxembourg",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{11}/);
+		}, function (tinString) {
+			var modulus11Result = modulus11CheckDigit(tinString, 10, [5, 4, 3, 2, 7, 6, 5, 4, 3, 2]);
+			return modulus11Result == tinString[10];
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{13}/);
+		}, function (tinString) {
+			var deLuhn10Result = luhnChecksum(tinString, 11);
+			var verhoeffChecksumResult = verhoeffChecksum(tinString, 11);
+			return deLuhn10Result == tinString[11] && verhoeffChecksumResult == tinString[12];
+		}]]
 	},
 	MO: {
 		name: "Macao",
@@ -567,11 +787,19 @@ var countriesData = {
 	},
 	MT: {
 		name: "Malta",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{9}/);
+		}], [function (tinString) {
+			return testRegex(tinString, /[0-9]{7}(M|G|A|P|L|H|B|Z)/);
+		}]]
 	},
 	MH: {
 		name: "Marshall Islands",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{5}-04/);
+		}], [function (tinString) {
+			return testRegex(tinString, /04-[0-9]{6}/);
+		}]]
 	},
 	MQ: {
 		name: "Martinique",
@@ -583,7 +811,9 @@ var countriesData = {
 	},
 	MU: {
 		name: "Mauritius",
-		tinRules: []
+		tinRules: [[function (tinString) {
+			return testRegex(tinString, /[0-9]{7}/);
+		}]]
 	},
 	YT: {
 		name: "Mayotte",
@@ -646,9 +876,9 @@ var countriesData = {
 		tinRules: [[function (tinString) {
 			return testRegex(tinString, /[0-9]{9}/);
 		}, function (tinString) {
-			var modulus11Remainder = modulus11CheckDigit(tinString, 8);
-			var remainder = modulus11Remainder === 0 ? 0 : 11 - modulus11Remainder;
-			return remainder == tinString[8];
+			var modulus11Result = modulus11CheckDigit(tinString, 8);
+			var finalResult = modulus11Result === 0 ? 0 : 11 - modulus11Result;
+			return finalResult == tinString[8];
 		}]]
 	},
 	AN: {
@@ -695,8 +925,8 @@ var countriesData = {
 			return testRegex(tinString, /[8-9]{1}[0-9]{7}[0-9]{1}(MVA)?/);
 		}, function (tinString) {
 			tinString = tinString.substring(0, 9);
-			var remainder = modulus11CheckDigit(tinString, 8, [3, 2, 7, 6, 5, 4, 3, 2]);
-			return remainder == tinString[8];
+			var modulus11Result = modulus11CheckDigit(tinString, 8, [3, 2, 7, 6, 5, 4, 3, 2]);
+			return modulus11Result == tinString[8];
 		}]]
 	},
 	OM: {
@@ -860,8 +1090,8 @@ var countriesData = {
 		tinRules: [[function (tinString) {
 			return testRegex(tinString, /[1-9]{1}[0-9]{6}([0-9]|X){1}/);
 		}, function (tinString) {
-			var remainder = modulus11CheckDigit(tinString, 7);
-			return remainder == tinString[7] || tinString[7] === "X" && remainder === 10;
+			var modulus11Result = modulus11CheckDigit(tinString, 7);
+			return modulus11Result == tinString[7] || tinString[7] === "X" && modulus11Result === 10;
 		}]]
 	},
 	SB: {
@@ -918,26 +1148,26 @@ var countriesData = {
 			return testRegex(tinString, /[0-9]{3}\.[0-9]{4}\.[0-9]{4}\.[0-9]{1}([0-9]|X){1}/);
 		}, function (tinString) {
 			tinString = tinString.substring(4).split(".").join("");
-			var remainder = modulus11CheckDigit(tinString, 9);
-			return remainder == tinString[9] || tinString[9] === "X" && remainder === 10;
+			var modulus11Result = modulus11CheckDigit(tinString, 9);
+			return modulus11Result == tinString[9] || tinString[9] === "X" && modulus11Result === 10;
 		}], [function (tinString) {
 			return testRegex(tinString, /[0-9]{3}[0-9]{4}[0-9]{4}[0-9]{1}([0-9]|X){1}/);
 		}, function (tinString) {
 			tinString = tinString.substring(3);
-			var remainder = modulus11CheckDigit(tinString, 9);
-			return remainder == tinString[9] || tinString[9] === "X" && remainder === 10;
+			var modulus11Result = modulus11CheckDigit(tinString, 9);
+			return modulus11Result == tinString[9] || tinString[9] === "X" && modulus11Result === 10;
 		}], [function (tinString) {
 			return testRegex(tinString, /CHE-[0-9]{3}\.[0-9]{3}\.[0-9]{2}([0-9]|X){1}/);
 		}, function (tinString) {
 			tinString = tinString.substring(4).split(".").join("");
-			var remainder = modulus11CheckDigit(tinString, 8);
-			return remainder == tinString[8] || tinString[8] === "X" && remainder === 10;
+			var modulus11Result = modulus11CheckDigit(tinString, 8);
+			return modulus11Result == tinString[8] || tinString[8] === "X" && modulus11Result === 10;
 		}], [function (tinString) {
 			return testRegex(tinString, /CHE[0-9]{3}[0-9]{3}[0-9]{2}([0-9]|X){1}/);
 		}, function (tinString) {
 			tinString = tinString.substring(3);
-			var remainder = modulus11CheckDigit(tinString, 8);
-			return remainder == tinString[8] || tinString[8] === "X" && remainder === 10;
+			var modulus11Result = modulus11CheckDigit(tinString, 8);
+			return modulus11Result == tinString[8] || tinString[8] === "X" && modulus11Result === 10;
 		}]]
 	},
 	SY: {
@@ -1084,17 +1314,49 @@ function modulus11CheckDigit(stringToCheck, checkDigitPosition) {
 
 	var digitsToCheck = stringToCheck.substring(0, checkDigitPosition).split("");
 	var multipliedDigits = digitsToCheck.map(function (digit, index) {
-		return digit * weightingFactors[weightingFactors.length - digitsToCheck.length + index];
+		return parseInt(digit) * weightingFactors[weightingFactors.length - digitsToCheck.length + index];
 	});
 	var multipliedDigitsSum = multipliedDigits.reduce(function (a, b) {
 		return a + b;
 	});
-	var mod11Result = multipliedDigitsSum % 11;
-	if (mod11Result === 0) {
+	var remainder = multipliedDigitsSum % 11;
+	if (remainder === 0) {
 		return 0;
 	} else {
-		return 11 - mod11Result;
+		return 11 - remainder;
 	}
+}
+
+function luhnChecksum(stringToCheck, checkDigitPosition) {
+	var digitsToCheck = stringToCheck.substring(0, checkDigitPosition).split("");
+	var sum = 0;
+	digitsToCheck.forEach(function (digit, index) {
+		var currentDigit = parseInt(digit);
+		if (index % 2 === 0) {
+			currentDigit *= 2;
+			if (currentDigit > 9) {
+				currentDigit -= 9;
+			}
+		}
+		sum += currentDigit;
+	});
+	return 10 - sum % 10;
+}
+
+var verhoeffPermutations = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 5, 7, 6, 2, 8, 3, 0, 9, 4], [5, 8, 0, 3, 7, 9, 6, 1, 4, 2], [8, 9, 1, 6, 0, 4, 3, 5, 2, 7], [9, 4, 5, 3, 1, 2, 6, 8, 7, 0], [4, 2, 8, 6, 5, 7, 3, 9, 0, 1], [2, 7, 9, 3, 8, 0, 6, 4, 1, 5], [7, 0, 4, 6, 9, 1, 3, 2, 5, 8]];
+
+var verhoeffMultiplicativeInverse = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9];
+
+var verhoeffDihedralGroup = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 0, 6, 7, 8, 9, 5], [2, 3, 4, 0, 1, 7, 8, 9, 5, 6], [3, 4, 0, 1, 2, 8, 9, 5, 6, 7], [4, 0, 1, 2, 3, 9, 5, 6, 7, 8], [5, 9, 8, 7, 6, 0, 4, 3, 2, 1], [6, 5, 9, 8, 7, 1, 0, 4, 3, 2], [7, 6, 5, 9, 8, 2, 1, 0, 4, 3], [8, 7, 6, 5, 9, 3, 2, 1, 0, 4], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]];
+
+function verhoeffChecksum(stringToCheck, checkDigitPosition) {
+	var digitsToCheck = stringToCheck.substring(0, checkDigitPosition).split("");
+	var checkSum = 0;
+	digitsToCheck.reverse().forEach(function (digit, index) {
+		checkSum = verhoeffDihedralGroup[checkSum][verhoeffPermutations[(index + 1) % 8][digit]];
+	});
+
+	return verhoeffMultiplicativeInverse[checkSum];
 }
 
 module.exports = { countriesData: countriesData };
