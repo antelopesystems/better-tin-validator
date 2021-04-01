@@ -1,1145 +1,1258 @@
 const countriesData = {
-	AF: {
-	  name: "Afghanistan",
-	  tinRules: []
-	},
-	AX: {
-	  name: "Aland Islands",
-	  tinRules: []
-	},
-	AL: {
-	  name: "Albania",
-	  tinRules: []
-	},
-	DZ: {
-	  name: "Algeria",
-	  tinRules: []
-	},
-	AS: {
-	  name: "American Samoa",
-	  tinRules: []
-	},
-	AD: {
-	  name: "Andorra",
-	  tinRules: []
-	},
-	AO: {
-	  name: "Angola",
-	  tinRules: []
-	},
-	AI: {
-	  name: "Anguilla",
-	  tinRules: []
-	},
-	AQ: {
-	  name: "Antarctica",
-	  tinRules: []
-	},
-	AG: {
-	  name: "Antigua And Barbuda",
-	  tinRules: []
-	},
-	AR: {
-	  name: "Argentina",
-	  tinRules: []
-	},
-	AM: {
-	  name: "Armenia",
-	  tinRules: []
-	},
-	AW: {
-	  name: "Aruba",
-	  tinRules: []
-	},
-	AU: {
-	  name: "Australia",
-	  tinRules: []
-	},
-	AT: {
-	  name: "Austria",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]]
-	},
-	AZ: {
-	  name: "Azerbaijan",
-	  tinRules: []
-	},
-	BS: {
-	  name: "Bahamas",
-	  tinRules: []
-	},
-	BH: {
-	  name: "Bahrain",
-	  tinRules: []
-	},
-	BD: {
-	  name: "Bangladesh",
-	  tinRules: []
-	},
-	BB: {
-	  name: "Barbados",
-	  tinRules: []
-	},
-	BY: {
-	  name: "Belarus",
-	  tinRules: []
-	},
-	BE: {
-	  name: "Belgium",
-	  tinRules: []
-	},
-	BZ: {
-	  name: "Belize",
-	  tinRules: []
-	},
-	BJ: {
-	  name: "Benin",
-	  tinRules: []
-	},
-	BM: {
-	  name: "Bermuda",
-	  tinRules: []
-	},
-	BT: {
-	  name: "Bhutan",
-	  tinRules: []
-	},
-	BO: {
-	  name: "Bolivia",
-	  tinRules: []
-	},
-	BA: {
-	  name: "Bosnia And Herzegovina",
-	  tinRules: []
-	},
-	BW: {
-	  name: "Botswana",
-	  tinRules: []
-	},
-	BV: {
-	  name: "Bouvet Island",
-	  tinRules: []
-	},
-	BR: {
-	  name: "Brazil",
-	  tinRules: []
-	},
-	IO: {
-	  name: "British Indian Ocean Territory",
-	  tinRules: []
-	},
-	BN: {
-	  name: "Brunei Darussalam",
-	  tinRules: []
-	},
-	BG: {
-	  name: "Bulgaria",
-	  tinRules: []
-	},
-	BF: {
-	  name: "Burkina Faso",
-	  tinRules: []
-	},
-	BI: {
-	  name: "Burundi",
-	  tinRules: []
-	},
-	KH: {
-	  name: "Cambodia",
-	  tinRules: []
-	},
-	CM: {
-	  name: "Cameroon",
-	  tinRules: []
-	},
-	CA: {
-	  name: "Canada",
-	  tinRules: []
-	},
-	CV: {
-	  name: "Cape Verde",
-	  tinRules: []
-	},
-	KY: {
-	  name: "Cayman Islands",
-	  tinRules: []
-	},
-	CF: {
-	  name: "Central African Republic",
-	  tinRules: []
-	},
-	TD: {
-	  name: "Chad",
-	  tinRules: []
-	},
-	CL: {
-	  name: "Chile",
-	  tinRules: []
-	},
-	CN: {
-	  name: "China",
-	  tinRules: []
-	},
-	CX: {
-	  name: "Christmas Island",
-	  tinRules: []
-	},
-	CC: {
-	  name: "Cocos (Keeling) Islands",
-	  tinRules: []
-	},
-	CO: {
-	  name: "Colombia",
-	  tinRules: []
-	},
-	KM: {
-	  name: "Comoros",
-	  tinRules: []
-	},
-	CG: {
-	  name: "Congo",
-	  tinRules: []
-	},
-	CD: {
-	  name: "Congo, Democratic Republic",
-	  tinRules: []
-	},
-	CK: {
-	  name: "Cook Islands",
-	  tinRules: []
-	},
-	CR: {
-	  name: "Costa Rica",
-	  tinRules: []
-	},
-	CI: {
-	  name: "Cote D'Ivoire",
-	  tinRules: []
-	},
-	HR: {
-	  name: "Croatia",
-	  tinRules: []
-	},
-	CU: {
-	  name: "Cuba",
-	  tinRules: []
-	},
-	CY: {
-	  name: "Cyprus",
-	  tinRules: []
-	},
-	CZ: {
-	  name: "Czech Republic",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9,10}/)]]
-	},
-	DK: {
-	  name: "Denmark",
-	  tinRules: [
-		[tinString => testRegex(tinString, /[0-9]{6}-?[0-9]{4}/)],
-		[tinString => testRegex(tinString, /(CVR|SE)\s?[0-9]{8}/)]
-	  ]
-	},
-	DJ: {
-	  name: "Djibouti",
-	  tinRules: []
-	},
-	DM: {
-	  name: "Dominica",
-	  tinRules: []
-	},
-	DO: {
-	  name: "Dominican Republic",
-	  tinRules: []
-	},
-	EC: {
-	  name: "Ecuador",
-	  tinRules: []
-	},
-	EG: {
-	  name: "Egypt",
-	  tinRules: []
-	},
-	SV: {
-	  name: "El Salvador",
-	  tinRules: []
-	},
-	GQ: {
-	  name: "Equatorial Guinea",
-	  tinRules: []
-	},
-	ER: {
-	  name: "Eritrea",
-	  tinRules: []
-	},
-	EE: {
-	  name: "Estonia",
-	  tinRules: []
-	},
-	ET: {
-	  name: "Ethiopia",
-	  tinRules: []
-	},
-	FK: {
-	  name: "Falkland Islands (Malvinas)",
-	  tinRules: []
-	},
-	FO: {
-	  name: "Faroe Islands",
-	  tinRules: []
-	},
-	FJ: {
-	  name: "Fiji",
-	  tinRules: []
-	},
-	FI: {
-	  name: "Finland",
-	  tinRules: [
-		[
-		  tinString =>
-			testRegex(tinString, /[0-9]{6}(-|\+|A)[0-9]{3}[A-Za-z0-9]{1}/)
-		],
-		[tinString => testRegex(tinString, /[0-9]{7}-[0-9]{1}/)]
-	  ]
-	},
-	FR: {
-	  name: "France",
-	  tinRules: []
-	},
-	GF: {
-	  name: "French Guiana",
-	  tinRules: []
-	},
-	PF: {
-	  name: "French Polynesia",
-	  tinRules: []
-	},
-	TF: {
-	  name: "French Southern Territories",
-	  tinRules: []
-	},
-	GA: {
-	  name: "Gabon",
-	  tinRules: []
-	},
-	GM: {
-	  name: "Gambia",
-	  tinRules: []
-	},
-	GE: {
-	  name: "Georgia",
-	  tinRules: []
-	},
-	DE: {
-	  name: "Germany",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]]
-	},
-	GH: {
-	  name: "Ghana",
-	  tinRules: []
-	},
-	GI: {
-	  name: "Gibraltar",
-	  tinRules: []
-	},
-	GR: {
-	  name: "Greece",
-	  tinRules: []
-	},
-	GL: {
-	  name: "Greenland",
-	  tinRules: []
-	},
-	GD: {
-	  name: "Grenada",
-	  tinRules: []
-	},
-	GP: {
-	  name: "Guadeloupe",
-	  tinRules: []
-	},
-	GU: {
-	  name: "Guam",
-	  tinRules: []
-	},
-	GT: {
-	  name: "Guatemala",
-	  tinRules: []
-	},
-	GG: {
-	  name: "Guernsey",
-	  tinRules: []
-	},
-	GN: {
-	  name: "Guinea",
-	  tinRules: []
-	},
-	GW: {
-	  name: "Guinea-Bissau",
-	  tinRules: []
-	},
-	GY: {
-	  name: "Guyana",
-	  tinRules: []
-	},
-	HT: {
-	  name: "Haiti",
-	  tinRules: []
-	},
-	HM: {
-	  name: "Heard Island & Mcdonald Islands",
-	  tinRules: []
-	},
-	VA: {
-	  name: "Holy See (Vatican City State)",
-	  tinRules: []
-	},
-	HN: {
-	  name: "Honduras",
-	  tinRules: []
-	},
-	HK: {
-	  name: "Hong Kong",
-	  tinRules: [
-		[tinString => testRegex(tinString, /[A-Z]{1,2}[0-9]{6}([0-9]|A){1}/)],
-		[
-		  tinString =>
-			testRegex(tinString, /[0-9]{8}-[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{1}/)
-		]
-	  ]
-	},
-	HU: {
-	  name: "Hungary",
-	  tinRules: []
-	},
-	IS: {
-	  name: "Iceland",
-	  tinRules: []
-	},
-	IN: {
-	  name: "India",
-	  tinRules: []
-	},
-	ID: {
-	  name: "Indonesia",
-	  tinRules: []
-	},
-	IR: {
-	  name: "Iran, Islamic Republic Of",
-	  tinRules: []
-	},
-	IQ: {
-	  name: "Iraq",
-	  tinRules: []
-	},
-	IE: {
-	  name: "Ireland",
-	  tinRules: [
-		[tinString => testRegex(tinString, /[0-9]{7}[A-Za-z]{1,2}/)],
-		[tinString => testRegex(tinString, /CHY[0-9]{1,5}/)]
-	  ]
-	},
-	IM: {
-	  name: "Isle Of Man",
-	  tinRules: []
-	},
-	IL: {
-	  name: "Israel",
-	  tinRules: []
-	},
-	IT: {
-	  name: "Italy",
-	  tinRules: []
-	},
-	JM: {
-	  name: "Jamaica",
-	  tinRules: []
-	},
-	JP: {
-	  name: "Japan",
-	  tinRules: []
-	},
-	JE: {
-	  name: "Jersey",
-	  tinRules: []
-	},
-	JO: {
-	  name: "Jordan",
-	  tinRules: []
-	},
-	KZ: {
-	  name: "Kazakhstan",
-	  tinRules: []
-	},
-	KE: {
-	  name: "Kenya",
-	  tinRules: []
-	},
-	KI: {
-	  name: "Kiribati",
-	  tinRules: []
-	},
-	KR: {
-	  name: "Korea",
-	  tinRules: []
-	},
-	KW: {
-	  name: "Kuwait",
-	  tinRules: []
-	},
-	KG: {
-	  name: "Kyrgyzstan",
-	  tinRules: []
-	},
-	LA: {
-	  name: "Lao People's Democratic Republic",
-	  tinRules: []
-	},
-	LV: {
-	  name: "Latvia",
-	  tinRules: []
-	},
-	LB: {
-	  name: "Lebanon",
-	  tinRules: []
-	},
-	LS: {
-	  name: "Lesotho",
-	  tinRules: []
-	},
-	LR: {
-	  name: "Liberia",
-	  tinRules: []
-	},
-	LY: {
-	  name: "Libyan Arab Jamahiriya",
-	  tinRules: []
-	},
-	LI: {
-	  name: "Liechtenstein",
-	  tinRules: []
-	},
-	LT: {
-	  name: "Lithuania",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]]
-	},
-	LU: {
-	  name: "Luxembourg",
-	  tinRules: []
-	},
-	MO: {
-	  name: "Macao",
-	  tinRules: []
-	},
-	MK: {
-	  name: "Macedonia",
-	  tinRules: []
-	},
-	MG: {
-	  name: "Madagascar",
-	  tinRules: []
-	},
-	MW: {
-	  name: "Malawi",
-	  tinRules: []
-	},
-	MY: {
-	  name: "Malaysia",
-	  tinRules: [
-		[tinString => testRegex(tinString, /(SG|OG)\s[0-9]{1,10}[0-1]{1}/)],
-		[tinString => testRegex(tinString, /[A-Za-z]{1,2}\s[0-9]{1,10}/)]
-	  ]
-	},
-	MV: {
-	  name: "Maldives",
-	  tinRules: []
-	},
-	ML: {
-	  name: "Mali",
-	  tinRules: []
-	},
-	MT: {
-	  name: "Malta",
-	  tinRules: []
-	},
-	MH: {
-	  name: "Marshall Islands",
-	  tinRules: []
-	},
-	MQ: {
-	  name: "Martinique",
-	  tinRules: []
-	},
-	MR: {
-	  name: "Mauritania",
-	  tinRules: []
-	},
-	MU: {
-	  name: "Mauritius",
-	  tinRules: []
-	},
-	YT: {
-	  name: "Mayotte",
-	  tinRules: []
-	},
-	MX: {
-	  name: "Mexico",
-	  tinRules: []
-	},
-	FM: {
-	  name: "Micronesia, Federated States Of",
-	  tinRules: []
-	},
-	MD: {
-	  name: "Moldova",
-	  tinRules: []
-	},
-	MC: {
-	  name: "Monaco",
-	  tinRules: []
-	},
-	MN: {
-	  name: "Mongolia",
-	  tinRules: []
-	},
-	ME: {
-	  name: "Montenegro",
-	  tinRules: []
-	},
-	MS: {
-	  name: "Montserrat",
-	  tinRules: []
-	},
-	MA: {
-	  name: "Morocco",
-	  tinRules: []
-	},
-	MZ: {
-	  name: "Mozambique",
-	  tinRules: []
-	},
-	MM: {
-	  name: "Myanmar",
-	  tinRules: []
-	},
-	NA: {
-	  name: "Namibia",
-	  tinRules: []
-	},
-	NR: {
-	  name: "Nauru",
-	  tinRules: []
-	},
-	NP: {
-	  name: "Nepal",
-	  tinRules: []
-	},
-	NL: {
-	  name: "Netherlands",
-	  tinRules: [
-		[
-		  tinString => testRegex(tinString, /[0-9]{9}/),
-		  tinString => {
-			const modulus11Remainder = modulus11CheckDigit(tinString, 8);
-			const remainder = modulus11Remainder === 0 ? 0 : 11 - modulus11Remainder;
-			return remainder == tinString[8];
-		  }
-		]
-	  ]
-	},
-	AN: {
-	  name: "Netherlands Antilles",
-	  tinRules: []
-	},
-	NC: {
-	  name: "New Caledonia",
-	  tinRules: []
-	},
-	NZ: {
-	  name: "New Zealand",
-	  tinRules: []
-	},
-	NI: {
-	  name: "Nicaragua",
-	  tinRules: []
-	},
-	NE: {
-	  name: "Niger",
-	  tinRules: []
-	},
-	NG: {
-	  name: "Nigeria",
-	  tinRules: []
-	},
-	NU: {
-	  name: "Niue",
-	  tinRules: []
-	},
-	NF: {
-	  name: "Norfolk Island",
-	  tinRules: []
-	},
-	MP: {
-	  name: "Northern Mariana Islands",
-	  tinRules: []
-	},
-	NO: {
-	  name: "Norway",
-	  tinRules: [
-		[tinString => testRegex(tinString, /[0-9]{11}/)],
-		[
-		  tinString => testRegex(tinString, /[8-9]{1}[0-9]{7}[0-9]{1}(MVA)?/),
-		  tinString => {
-			tinString = tinString.substring(0, 9);
-			const remainder = modulus11CheckDigit(tinString, 8, [
-			  3,
-			  2,
-			  7,
-			  6,
-			  5,
-			  4,
-			  3,
-			  2
-			]);
-			return remainder == tinString[8];
-		  }
-		]
-	  ]
-	},
-	OM: {
-	  name: "Oman",
-	  tinRules: []
-	},
-	PK: {
-	  name: "Pakistan",
-	  tinRules: []
-	},
-	PW: {
-	  name: "Palau",
-	  tinRules: []
-	},
-	PS: {
-	  name: "Palestinian Territory, Occupied",
-	  tinRules: []
-	},
-	PA: {
-	  name: "Panama",
-	  tinRules: []
-	},
-	PG: {
-	  name: "Papua New Guinea",
-	  tinRules: []
-	},
-	PY: {
-	  name: "Paraguay",
-	  tinRules: []
-	},
-	PE: {
-	  name: "Peru",
-	  tinRules: []
-	},
-	PH: {
-	  name: "Philippines",
-	  tinRules: []
-	},
-	PN: {
-	  name: "Pitcairn",
-	  tinRules: []
-	},
-	PL: {
-	  name: "Poland",
-	  tinRules: []
-	},
-	PT: {
-	  name: "Portugal",
-	  tinRules: []
-	},
-	PR: {
-	  name: "Puerto Rico",
-	  tinRules: []
-	},
-	QA: {
-	  name: "Qatar",
-	  tinRules: []
-	},
-	RE: {
-	  name: "Reunion",
-	  tinRules: []
-	},
-	RO: {
-	  name: "Romania",
-	  tinRules: []
-	},
-	RU: {
-	  name: "Russian Federation",
-	  tinRules: []
-	},
-	RW: {
-	  name: "Rwanda",
-	  tinRules: []
-	},
-	BL: {
-	  name: "Saint Barthelemy",
-	  tinRules: []
-	},
-	SH: {
-	  name: "Saint Helena",
-	  tinRules: []
-	},
-	KN: {
-	  name: "Saint Kitts And Nevis",
-	  tinRules: []
-	},
-	LC: {
-	  name: "Saint Lucia",
-	  tinRules: []
-	},
-	MF: {
-	  name: "Saint Martin",
-	  tinRules: []
-	},
-	PM: {
-	  name: "Saint Pierre And Miquelon",
-	  tinRules: []
-	},
-	VC: {
-	  name: "Saint Vincent And Grenadines",
-	  tinRules: []
-	},
-	WS: {
-	  name: "Samoa",
-	  tinRules: []
-	},
-	SM: {
-	  name: "San Marino",
-	  tinRules: []
-	},
-	ST: {
-	  name: "Sao Tome And Principe",
-	  tinRules: []
-	},
-	SA: {
-	  name: "Saudi Arabia",
-	  tinRules: []
-	},
-	SN: {
-	  name: "Senegal",
-	  tinRules: []
-	},
-	RS: {
-	  name: "Serbia",
-	  tinRules: []
-	},
-	SC: {
-	  name: "Seychelles",
-	  tinRules: []
-	},
-	SL: {
-	  name: "Sierra Leone",
-	  tinRules: []
-	},
-	SG: {
-	  name: "Singapore",
-	  tinRules: [
-		[tinString => testRegex(tinString, /[0-9]{8}[A-Za-z]{1}/)],
-		[tinString => testRegex(tinString, /[0-9]{9}[A-Za-z]{1}/)],
-		[
-		  tinString => testRegex(tinString, /F(000|\s\s\s)[0-9]{5}[A-Za-z]{1}/)
-		],
-		[
-		  tinString =>
-			testRegex(tinString, /(S|T)[0-9]{2}[A-Za-z]{2}[0-9]{4}[A-Za-z]{1}/)
-		],
-		[tinString => testRegex(tinString, /A[0-9]{7}[A-Za-z]{1}/)],
-		[tinString => testRegex(tinString, /4[0-9]{8}[A-Za-z]{1}/)],
-		[tinString => testRegex(tinString, /(S|T|F|G)[0-9]{7}[A-Za-z]{1}/)]
-	  ]
-	},
-	SK: {
-	  name: "Slovakia",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{9,10}/)]]
-	},
-	SI: {
-	  name: "Slovenia",
-	  tinRules: [
-		[
-		  tinString => testRegex(tinString, /[1-9]{1}[0-9]{6}([0-9]|X){1}/),
-		  tinString => {
-			const remainder = modulus11CheckDigit(tinString, 7);
-			return (
-			  remainder == tinString[7] ||
-			  (tinString[7] === "X" && remainder === 10)
-			);
-		  }
-		]
-	  ]
-	},
-	SB: {
-	  name: "Solomon Islands",
-	  tinRules: []
-	},
-	SO: {
-	  name: "Somalia",
-	  tinRules: []
-	},
-	ZA: {
-	  name: "South Africa",
-	  tinRules: [[tinString => testRegex(tinString, /([0-3]|9){1}[0-9]{9}/)]]
-	},
-	GS: {
-	  name: "South Georgia And Sandwich Isl.",
-	  tinRules: []
-	},
-	ES: {
-	  name: "Spain",
-	  tinRules: []
-	},
-	LK: {
-	  name: "Sri Lanka",
-	  tinRules: []
-	},
-	SD: {
-	  name: "Sudan",
-	  tinRules: []
-	},
-	SR: {
-	  name: "Suriname",
-	  tinRules: []
-	},
-	SJ: {
-	  name: "Svalbard And Jan Mayen",
-	  tinRules: []
-	},
-	SZ: {
-	  name: "Swaziland",
-	  tinRules: []
-	},
-	SE: {
-	  name: "Sweden",
-	  tinRules: [[tinString => testRegex(tinString, /[0-9]{6}(-|\+)[0-9]{4}/)]]
-	},
-	CH: {
-	  name: "Switzerland",
-	  tinRules: [
-		[
-		  tinString =>
-			testRegex(
-			  tinString,
-			  /[0-9]{3}\.[0-9]{4}\.[0-9]{4}\.[0-9]{1}([0-9]|X){1}/
-			),
-		  tinString => {
-			tinString = tinString
-			  .substring(4)
-			  .split(".")
-			  .join("");
-			const remainder = modulus11CheckDigit(tinString, 9);
-			return (
-			  remainder == tinString[9] ||
-			  (tinString[9] === "X" && remainder === 10)
-			);
-		  }
-		],
-		[
-		  tinString =>
-			testRegex(tinString, /[0-9]{3}[0-9]{4}[0-9]{4}[0-9]{1}([0-9]|X){1}/),
-		  tinString => {
-			tinString = tinString.substring(3);
-			const remainder = modulus11CheckDigit(tinString, 9);
-			return (
-			  remainder == tinString[9] ||
-			  (tinString[9] === "X" && remainder === 10)
-			);
-		  }
-		],
-		[
-		  tinString =>
-			testRegex(
-			  tinString,
-			  /CHE-[0-9]{3}\.[0-9]{3}\.[0-9]{2}([0-9]|X){1}/
-			),
-		  tinString => {
-			tinString = tinString
-			  .substring(4)
-			  .split(".")
-			  .join("");
-			const remainder = modulus11CheckDigit(tinString, 8);
-			return (
-			  remainder == tinString[8] ||
-			  (tinString[8] === "X" && remainder === 10)
-			);
-		  }
-		],
-		[
-		  tinString =>
-			testRegex(tinString, /CHE[0-9]{3}[0-9]{3}[0-9]{2}([0-9]|X){1}/),
-		  tinString => {
-			tinString = tinString.substring(3);
-			const remainder = modulus11CheckDigit(tinString, 8);
-			return (
-			  remainder == tinString[8] ||
-			  (tinString[8] === "X" && remainder === 10)
-			);
-		  }
-		]
-	  ]
-	},
-	SY: {
-	  name: "Syrian Arab Republic",
-	  tinRules: []
-	},
-	TW: {
-	  name: "Taiwan",
-	  tinRules: []
-	},
-	TJ: {
-	  name: "Tajikistan",
-	  tinRules: []
-	},
-	TZ: {
-	  name: "Tanzania",
-	  tinRules: []
-	},
-	TH: {
-	  name: "Thailand",
-	  tinRules: []
-	},
-	TL: {
-	  name: "Timor-Leste",
-	  tinRules: []
-	},
-	TG: {
-	  name: "Togo",
-	  tinRules: []
-	},
-	TK: {
-	  name: "Tokelau",
-	  tinRules: []
-	},
-	TO: {
-	  name: "Tonga",
-	  tinRules: []
-	},
-	TT: {
-	  name: "Trinidad And Tobago",
-	  tinRules: []
-	},
-	TN: {
-	  name: "Tunisia",
-	  tinRules: []
-	},
-	TR: {
-	  name: "Turkey",
-	  tinRules: []
-	},
-	TM: {
-	  name: "Turkmenistan",
-	  tinRules: []
-	},
-	TC: {
-	  name: "Turks And Caicos Islands",
-	  tinRules: []
-	},
-	TV: {
-	  name: "Tuvalu",
-	  tinRules: []
-	},
-	UG: {
-	  name: "Uganda",
-	  tinRules: []
-	},
-	UA: {
-	  name: "Ukraine",
-	  tinRules: []
-	},
-	AE: {
-	  name: "United Arab Emirates",
-	  tinRules: []
-	},
-	GB: {
-	  name: "United Kingdom",
-	  tinRules: []
-	},
-	US: {
-	  name: "United States",
-	  tinRules: []
-	},
-	UM: {
-	  name: "United States Outlying Islands",
-	  tinRules: []
-	},
-	UY: {
-	  name: "Uruguay",
-	  tinRules: []
-	},
-	UZ: {
-	  name: "Uzbekistan",
-	  tinRules: []
-	},
-	VU: {
-	  name: "Vanuatu",
-	  tinRules: []
-	},
-	VE: {
-	  name: "Venezuela",
-	  tinRules: []
-	},
-	VN: {
-	  name: "Viet Nam",
-	  tinRules: []
-	},
-	VG: {
-	  name: "Virgin Islands, British",
-	  tinRules: []
-	},
-	VI: {
-	  name: "Virgin Islands, U.S.",
-	  tinRules: []
-	},
-	WF: {
-	  name: "Wallis And Futuna",
-	  tinRules: []
-	},
-	EH: {
-	  name: "Western Sahara",
-	  tinRules: []
-	},
-	YE: {
-	  name: "Yemen",
-	  tinRules: []
-	},
-	ZM: {
-	  name: "Zambia",
-	  tinRules: []
-	},
-	ZW: {
-	  name: "Zimbabwe",
-	  tinRules: []
-	}
-  };
-  
-  function testRegex(stringToCheck, regexLiteral) {
-	const regex = new RegExp("^" + regexLiteral.source + "$");
-	return regex.test(stringToCheck);
-  }
-  
-  function modulus11CheckDigit(
-	stringToCheck,
-	checkDigitPosition,
-	weightingFactors = [10, 9, 8, 7, 6, 5, 4, 3, 2]
-  ) {
-	const digitsToCheck = stringToCheck
-	  .substring(0, checkDigitPosition)
-	  .split("");
-	const multipliedDigits = digitsToCheck.map(
-	  (digit, index) =>
-		digit *
-		weightingFactors[weightingFactors.length - digitsToCheck.length + index]
-	);
-	const multipliedDigitsSum = multipliedDigits.reduce((a, b) => a + b);
-	const mod11Result = multipliedDigitsSum % 11;
-	if(mod11Result === 0) {
-		return 0;
-	} else {
-		return 11 - mod11Result;
-	}
-  }
-  
-  module.exports = { countriesData };
+    AF: {
+        name: "Afghanistan",
+        tinRules: [],
+        tooltip: ""
+    },
+    AX: {
+        name: "Aland Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    AL: {
+        name: "Albania",
+        tinRules: [],
+        tooltip: ""
+    },
+    DZ: {
+        name: "Algeria",
+        tinRules: [],
+        tooltip: ""
+    },
+    AS: {
+        name: "American Samoa",
+        tinRules: [],
+        tooltip: ""
+    },
+    AD: {
+        name: "Andorra",
+        tinRules: [[tinString => testRegex(tinString, /([efEF])([0-9]{6})([a-zA-Z])/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ANDORRA"
+    },
+    AO: {
+        name: "Angola",
+        tinRules: [],
+        tooltip: ""
+    },
+    AI: {
+        name: "Anguilla",
+        tinRules: [],
+        tooltip: ""
+    },
+    AQ: {
+        name: "Antarctica",
+        tinRules: [],
+        tooltip: ""
+    },
+    AG: {
+        name: "Antigua And Barbuda",
+        tinRules: [],
+        tooltip: ""
+    },
+    AR: {
+        name: "Argentina",
+        tinRules: [[tinString => testRegex(tinString, /(2)([034567])([0-9]{9})/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ARGENTINA"
+    },
+    AM: {
+        name: "Armenia",
+        tinRules: [],
+        tooltip: ""
+    },
+    AW: {
+        name: "Aruba",
+        tinRules: [],
+        tooltip: ""
+    },
+    AU: {
+        name: "Australia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{8,9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.AUSTRALIA"
+    },
+    AT: {
+        name: "Austria",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.AUSTRIA"
+    },
+    AZ: {
+        name: "Azerbaijan",
+        tinRules: [],
+        tooltip: ""
+    },
+    BS: {
+        name: "Bahamas",
+        tinRules: [],
+        tooltip: ""
+    },
+    BH: {
+        name: "Bahrain",
+        tinRules: [],
+        tooltip: ""
+    },
+    BD: {
+        name: "Bangladesh",
+        tinRules: [],
+        tooltip: ""
+    },
+    BB: {
+        name: "Barbados",
+        tinRules: [],
+        tooltip: ""
+    },
+    BY: {
+        name: "Belarus",
+        tinRules: [],
+        tooltip: ""
+    },
+    BE: {
+        name: "Belgium",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.BELGIUM"
+    },
+    BZ: {
+        name: "Belize",
+        tinRules: [],
+        tooltip: ""
+    },
+    BJ: {
+        name: "Benin",
+        tinRules: [],
+        tooltip: ""
+    },
+    BM: {
+        name: "Bermuda",
+        tinRules: [],
+        tooltip: ""
+    },
+    BT: {
+        name: "Bhutan",
+        tinRules: [],
+        tooltip: ""
+    },
+    BO: {
+        name: "Bolivia",
+        tinRules: [],
+        tooltip: ""
+    },
+    BA: {
+        name: "Bosnia And Herzegovina",
+        tinRules: [],
+        tooltip: ""
+    },
+    BW: {
+        name: "Botswana",
+        tinRules: [],
+        tooltip: ""
+    },
+    BV: {
+        name: "Bouvet Island",
+        tinRules: [],
+        tooltip: ""
+    },
+    BR: {
+        name: "Brazil",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.BRAZIL"
+    },
+    IO: {
+        name: "British Indian Ocean Territory",
+        tinRules: [],
+        tooltip: ""
+    },
+    BN: {
+        name: "Brunei Darussalam",
+        tinRules: [],
+        tooltip: ""
+    },
+    BG: {
+        name: "Bulgaria",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.BULGARIA"
+    },
+    BF: {
+        name: "Burkina Faso",
+        tinRules: [],
+        tooltip: ""
+    },
+    BI: {
+        name: "Burundi",
+        tinRules: [],
+        tooltip: ""
+    },
+    KH: {
+        name: "Cambodia",
+        tinRules: [],
+        tooltip: ""
+    },
+    CM: {
+        name: "Cameroon",
+        tinRules: [],
+        tooltip: ""
+    },
+    CA: {
+        name: "Canada",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CANADA"
+    },
+    CV: {
+        name: "Cape Verde",
+        tinRules: [],
+        tooltip: ""
+    },
+    KY: {
+        name: "Cayman Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    CF: {
+        name: "Central African Republic",
+        tinRules: [],
+        tooltip: ""
+    },
+    TD: {
+        name: "Chad",
+        tinRules: [],
+        tooltip: ""
+    },
+    CL: {
+        name: "Chile",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CHILE"
+    },
+    CN: {
+        name: "China",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{17}([0-9]|x|X)/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CHINA"
+    },
+    CX: {
+        name: "Christmas Island",
+        tinRules: [],
+        tooltip: ""
+    },
+    CC: {
+        name: "Cocos (Keeling) Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    CO: {
+        name: "Colombia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.COLOMBIA"
+    },
+    KM: {
+        name: "Comoros",
+        tinRules: [],
+        tooltip: ""
+    },
+    CG: {
+        name: "Congo",
+        tinRules: [],
+        tooltip: ""
+    },
+    CD: {
+        name: "Congo, Democratic Republic",
+        tinRules: [],
+        tooltip: ""
+    },
+    CK: {
+        name: "Cook Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    CR: {
+        name: "Costa Rica",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.COSTA.RICA"
+    },
+    CI: {
+        name: "Cote D'Ivoire",
+        tinRules: [],
+        tooltip: ""
+    },
+    HR: {
+        name: "Croatia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CROATIA"
+    },
+    CU: {
+        name: "Cuba",
+        tinRules: [],
+        tooltip: ""
+    },
+    CY: {
+        name: "Cyprus",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]|[a-z]|[A-Z]){9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CYPRUS"
+    },
+    CZ: {
+        name: "Czech Republic",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9,10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.CZECH.REPUBLIC"
+    },
+    DK: {
+        name: "Denmark",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.DENMARK"
+    },
+    DJ: {
+        name: "Djibouti",
+        tinRules: [],
+        tooltip: ""
+    },
+    DM: {
+        name: "Dominica",
+        tinRules: [],
+        tooltip: ""
+    },
+    DO: {
+        name: "Dominican Republic",
+        tinRules: [],
+        tooltip: ""
+    },
+    EC: {
+        name: "Ecuador",
+        tinRules: [],
+        tooltip: ""
+    },
+    EG: {
+        name: "Egypt",
+        tinRules: [],
+        tooltip: ""
+    },
+    SV: {
+        name: "El Salvador",
+        tinRules: [],
+        tooltip: ""
+    },
+    GQ: {
+        name: "Equatorial Guinea",
+        tinRules: [],
+        tooltip: ""
+    },
+    ER: {
+        name: "Eritrea",
+        tinRules: [],
+        tooltip: ""
+    },
+    EE: {
+        name: "Estonia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ESTONIA"
+    },
+    ET: {
+        name: "Ethiopia",
+        tinRules: [],
+        tooltip: ""
+    },
+    FK: {
+        name: "Falkland Islands (Malvinas)",
+        tinRules: [],
+        tooltip: ""
+    },
+    FO: {
+        name: "Faroe Islands",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.FAROE.ISLANDS"
+    },
+    FJ: {
+        name: "Fiji",
+        tinRules: [],
+        tooltip: ""
+    },
+    FI: {
+        name: "Finland",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{6}(-|\+|A)[0-9]{3}[A-Za-z0-9]{1}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.FINLAND"
+    },
+    FR: {
+        name: "France",
+        tinRules: [[tinString => testRegex(tinString, /[0-3][0-9]{12}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.FRANCE"
+    },
+    GF: {
+        name: "French Guiana",
+        tinRules: [],
+        tooltip: ""
+    },
+    PF: {
+        name: "French Polynesia",
+        tinRules: [],
+        tooltip: ""
+    },
+    TF: {
+        name: "French Southern Territories",
+        tinRules: [],
+        tooltip: ""
+    },
+    GA: {
+        name: "Gabon",
+        tinRules: [],
+        tooltip: ""
+    },
+    GM: {
+        name: "Gambia",
+        tinRules: [],
+        tooltip: ""
+    },
+    GE: {
+        name: "Georgia",
+        tinRules: [],
+        tooltip: ""
+    },
+    DE: {
+        name: "Germany",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.GERMANY"
+    },
+    GH: {
+        name: "Ghana",
+        tinRules: [],
+        tooltip: ""
+    },
+    GI: {
+        name: "Gibraltar",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{0,6}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.GIBRALTAR"
+    },
+    GR: {
+        name: "Greece",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.GREECE"
+    },
+    GL: {
+        name: "Greenland",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.GREENLAND"
+    },
+    GD: {
+        name: "Grenada",
+        tinRules: [],
+        tooltip: ""
+    },
+    GP: {
+        name: "Guadeloupe",
+        tinRules: [],
+        tooltip: ""
+    },
+    GU: {
+        name: "Guam",
+        tinRules: [],
+        tooltip: ""
+    },
+    GT: {
+        name: "Guatemala",
+        tinRules: [],
+        tooltip: ""
+    },
+    GG: {
+        name: "Guernsey",
+        tinRules: [[tinString => testRegex(tinString, /(GY)[0-9]{6}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.GUERNSEY"
+    },
+    GN: {
+        name: "Guinea",
+        tinRules: [],
+        tooltip: ""
+    },
+    GW: {
+        name: "Guinea-Bissau",
+        tinRules: [],
+        tooltip: ""
+    },
+    GY: {
+        name: "Guyana",
+        tinRules: [],
+        tooltip: ""
+    },
+    HT: {
+        name: "Haiti",
+        tinRules: [],
+        tooltip: ""
+    },
+    HM: {
+        name: "Heard Island & Mcdonald Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    VA: {
+        name: "Holy See (Vatican City State)",
+        tinRules: [],
+        tooltip: ""
+    },
+    HN: {
+        name: "Honduras",
+        tinRules: [],
+        tooltip: ""
+    },
+    HK: {
+        name: "Hong Kong",
+        tinRules: [],
+        tooltip: ""
+    },
+    HU: {
+        name: "Hungary",
+        tinRules: [],
+        tooltip: ""
+    },
+    IS: {
+        name: "Iceland",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ICELAND"
+    },
+    IN: {
+        name: "India",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]|[a-z]|[A-Z]){10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.INDIA"
+    },
+    ID: {
+        name: "Indonesia",
+        tinRules: [],
+        tooltip: ""
+    },
+    IR: {
+        name: "Iran, Islamic Republic Of",
+        tinRules: [],
+        tooltip: ""
+    },
+    IQ: {
+        name: "Iraq",
+        tinRules: [],
+        tooltip: ""
+    },
+    IE: {
+        name: "Ireland",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{7}[A-Za-z]{1,2}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.IRELAND"
+    },
+    IM: {
+        name: "Isle Of Man",
+        tinRules: [],
+        tooltip: ""
+    },
+    IL: {
+        name: "Israel",
+        tinRules: [],
+        tooltip: ""
+    },
+    IT: {
+        name: "Italy",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]|[a-z]|[A-Z]){16}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ITALY"
+    },
+    JM: {
+        name: "Jamaica",
+        tinRules: [],
+        tooltip: ""
+    },
+    JP: {
+        name: "Japan",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{12}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.JAPAN"
+    },
+    JE: {
+        name: "Jersey",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]|[a-z]|[A-Z]){8}([AaBbCcDd])/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.JERSEY"
+    },
+    JO: {
+        name: "Jordan",
+        tinRules: [],
+        tooltip: ""
+    },
+    KZ: {
+        name: "Kazakhstan",
+        tinRules: [],
+        tooltip: ""
+    },
+    KE: {
+        name: "Kenya",
+        tinRules: [],
+        tooltip: ""
+    },
+    KI: {
+        name: "Kiribati",
+        tinRules: [],
+        tooltip: ""
+    },
+    KR: {
+        name: "Korea",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{13}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.KOREA"
+    },
+    KW: {
+        name: "Kuwait",
+        tinRules: [],
+        tooltip: ""
+    },
+    KG: {
+        name: "Kyrgyzstan",
+        tinRules: [],
+        tooltip: ""
+    },
+    LA: {
+        name: "Lao People's Democratic Republic",
+        tinRules: [],
+        tooltip: ""
+    },
+    LV: {
+        name: "Latvia",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]){6}([0-2])([0-9]){4}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.LATVIA"
+    },
+    LB: {
+        name: "Lebanon",
+        tinRules: [],
+        tooltip: ""
+    },
+    LS: {
+        name: "Lesotho",
+        tinRules: [],
+        tooltip: ""
+    },
+    LR: {
+        name: "Liberia",
+        tinRules: [],
+        tooltip: ""
+    },
+    LY: {
+        name: "Libyan Arab Jamahiriya",
+        tinRules: [],
+        tooltip: ""
+    },
+    LI: {
+        name: "Liechtenstein",
+        tinRules: [[tinString => testRegex(tinString, /([0-9]){12}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.LIECHTENSTEIN"
+    },
+    LT: {
+        name: "Lithuania",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.LITHUANIA"
+    },
+    LU: {
+        name: "Luxembourg",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{13}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.LUXEMBOURG"
+    },
+    MO: {
+        name: "Macao",
+        tinRules: [],
+        tooltip: ""
+    },
+    MK: {
+        name: "Macedonia",
+        tinRules: [],
+        tooltip: ""
+    },
+    MG: {
+        name: "Madagascar",
+        tinRules: [],
+        tooltip: ""
+    },
+    MW: {
+        name: "Malawi",
+        tinRules: [],
+        tooltip: ""
+    },
+    MY: {
+        name: "Malaysia",
+        tinRules: [[tinString => testRegex(tinString, /(SG|OG)[0-9|a-zA-Z]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.MALAYSIA"
+    },
+    MV: {
+        name: "Maldives",
+        tinRules: [],
+        tooltip: ""
+    },
+    ML: {
+        name: "Mali",
+        tinRules: [],
+        tooltip: ""
+    },
+    MT: {
+        name: "Malta",
+        tinRules: [[tinString => testRegex(tinString, /[0-9|a-zA-Z]{7}[MmGgAaPpLlHhBbZz]/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.MALTA"
+    },
+    MH: {
+        name: "Marshall Islands",
+        tinRules: [[tinString => testRegex(tinString, /(04)[0-9]{6}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.MARSHALL.ISLANDS"
+    },
+    MQ: {
+        name: "Martinique",
+        tinRules: [],
+        tooltip: ""
+    },
+    MR: {
+        name: "Mauritania",
+        tinRules: [],
+        tooltip: ""
+    },
+    MU: {
+        name: "Mauritius",
+        tinRules: [[tinString => testRegex(tinString, /[178][0-9]{7}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.MAURITIUS"
+    },
+    YT: {
+        name: "Mayotte",
+        tinRules: [],
+        tooltip: ""
+    },
+    MX: {
+        name: "Mexico",
+        tinRules: [[tinString => testRegex(tinString, /[a-zA-Z]{4}[0-9]{6}[0-9|a-zA-Z]{3}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.MEXICO"
+    },
+    FM: {
+        name: "Micronesia, Federated States Of",
+        tinRules: [],
+        tooltip: ""
+    },
+    MD: {
+        name: "Moldova",
+        tinRules: [],
+        tooltip: ""
+    },
+    MC: {
+        name: "Monaco",
+        tinRules: [],
+        tooltip: ""
+    },
+    MN: {
+        name: "Mongolia",
+        tinRules: [],
+        tooltip: ""
+    },
+    ME: {
+        name: "Montenegro",
+        tinRules: [],
+        tooltip: ""
+    },
+    MS: {
+        name: "Montserrat",
+        tinRules: [],
+        tooltip: ""
+    },
+    MA: {
+        name: "Morocco",
+        tinRules: [],
+        tooltip: ""
+    },
+    MZ: {
+        name: "Mozambique",
+        tinRules: [],
+        tooltip: ""
+    },
+    MM: {
+        name: "Myanmar",
+        tinRules: [],
+        tooltip: ""
+    },
+    NA: {
+        name: "Namibia",
+        tinRules: [],
+        tooltip: ""
+    },
+    NR: {
+        name: "Nauru",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.NAURU"
+    },
+    NP: {
+        name: "Nepal",
+        tinRules: [],
+        tooltip: ""
+    },
+    NL: {
+        name: "Netherlands",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.NETHERLANDS"
+    },
+    AN: {
+        name: "Netherlands Antilles",
+        tinRules: [],
+        tooltip: ""
+    },
+    NC: {
+        name: "New Caledonia",
+        tinRules: [],
+        tooltip: ""
+    },
+    NZ: {
+        name: "New Zealand",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{8,9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.NEW.ZEALAND"
+    },
+    NI: {
+        name: "Nicaragua",
+        tinRules: [],
+        tooltip: ""
+    },
+    NE: {
+        name: "Niger",
+        tinRules: [],
+        tooltip: ""
+    },
+    NG: {
+        name: "Nigeria",
+        tinRules: [],
+        tooltip: ""
+    },
+    NU: {
+        name: "Niue",
+        tinRules: [],
+        tooltip: ""
+    },
+    NF: {
+        name: "Norfolk Island",
+        tinRules: [],
+        tooltip: ""
+    },
+    MP: {
+        name: "Northern Mariana Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    NO: {
+        name: "Norway",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.NORWAY"
+    },
+    OM: {
+        name: "Oman",
+        tinRules: [],
+        tooltip: ""
+    },
+    PK: {
+        name: "Pakistan",
+        tinRules: [],
+        tooltip: ""
+    },
+    PW: {
+        name: "Palau",
+        tinRules: [],
+        tooltip: ""
+    },
+    PS: {
+        name: "Palestinian Territory, Occupied",
+        tinRules: [],
+        tooltip: ""
+    },
+    PA: {
+        name: "Panama",
+        tinRules: [],
+        tooltip: ""
+    },
+    PG: {
+        name: "Papua New Guinea",
+        tinRules: [],
+        tooltip: ""
+    },
+    PY: {
+        name: "Paraguay",
+        tinRules: [],
+        tooltip: ""
+    },
+    PE: {
+        name: "Peru",
+        tinRules: [],
+        tooltip: ""
+    },
+    PH: {
+        name: "Philippines",
+        tinRules: [],
+        tooltip: ""
+    },
+    PN: {
+        name: "Pitcairn",
+        tinRules: [],
+        tooltip: ""
+    },
+    PL: {
+        name: "Poland",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10,11}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.POLAND"
+    },
+    PT: {
+        name: "Portugal",
+        tinRules: [[tinString => testRegex(tinString, /[1-4][0-9]{8}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.PORTUGAL"
+    },
+    PR: {
+        name: "Puerto Rico",
+        tinRules: [],
+        tooltip: ""
+    },
+    QA: {
+        name: "Qatar",
+        tinRules: [],
+        tooltip: ""
+    },
+    RE: {
+        name: "Reunion",
+        tinRules: [],
+        tooltip: ""
+    },
+    RO: {
+        name: "Romania",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{13}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.ROMANIA"
+    },
+    RU: {
+        name: "Russian Federation",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{12}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.RUSSIAN.FEDERATION"
+    },
+    RW: {
+        name: "Rwanda",
+        tinRules: [],
+        tooltip: ""
+    },
+    BL: {
+        name: "Saint Barthelemy",
+        tinRules: [],
+        tooltip: ""
+    },
+    SH: {
+        name: "Saint Helena",
+        tinRules: [],
+        tooltip: ""
+    },
+    KN: {
+        name: "Saint Kitts And Nevis",
+        tinRules: [],
+        tooltip: ""
+    },
+    LC: {
+        name: "Saint Lucia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{0,6}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SAINT.LUCIA"
+    },
+    MF: {
+        name: "Saint Martin",
+        tinRules: [],
+        tooltip: ""
+    },
+    PM: {
+        name: "Saint Pierre And Miquelon",
+        tinRules: [],
+        tooltip: ""
+    },
+    VC: {
+        name: "Saint Vincent And Grenadines",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]+/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SAINT.VINCENT.AND.GRENADINES"
+    },
+    WS: {
+        name: "Samoa",
+        tinRules: [[tinString => testRegex(tinString, /(70004)[0-9]*/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SAMOA"
+    },
+    SM: {
+        name: "San Marino",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]+/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SAN.MARINO"
+    },
+    ST: {
+        name: "Sao Tome And Principe",
+        tinRules: [],
+        tooltip: ""
+    },
+    SA: {
+        name: "Saudi Arabia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{15}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SAUDI.ARABIA"
+    },
+    SN: {
+        name: "Senegal",
+        tinRules: [],
+        tooltip: ""
+    },
+    RS: {
+        name: "Serbia",
+        tinRules: [],
+        tooltip: ""
+    },
+    SC: {
+        name: "Seychelles",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{2}(2)[0-9]{6}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SEYCHELLES"
+    },
+    SL: {
+        name: "Sierra Leone",
+        tinRules: [],
+        tooltip: ""
+    },
+    SG: {
+        name: "Singapore",
+        tinRules: [[tinString => testRegex(tinString, /[0-9|A-Za-z][0-9]{6}[0-9|A-Za-z]/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SINGAPORE"
+    },
+    SK: {
+        name: "Slovakia",
+        tinRules: [],
+        tooltip: ""
+    },
+    SI: {
+        name: "Slovenia",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{8}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SLOVENIA"
+    },
+    SB: {
+        name: "Solomon Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    SO: {
+        name: "Somalia",
+        tinRules: [],
+        tooltip: ""
+    },
+    ZA: {
+        name: "South Africa",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SOUTH.AFRICA"
+    },
+    GS: {
+        name: "South Georgia And Sandwich Isl.",
+        tinRules: [],
+        tooltip: ""
+    },
+    ES: {
+        name: "Spain",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{8}[A-Za-z]/)],
+            [tinString => testRegex(tinString, /[LlKk][0-9]{7}[A-Za-z]/)],
+            [tinString => testRegex(tinString, /[MmXxYyZz][0-9]{7}[A-Za-z]/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SPAIN"
+    },
+    LK: {
+        name: "Sri Lanka",
+        tinRules: [],
+        tooltip: ""
+    },
+    SD: {
+        name: "Sudan",
+        tinRules: [],
+        tooltip: ""
+    },
+    SR: {
+        name: "Suriname",
+        tinRules: [],
+        tooltip: ""
+    },
+    SJ: {
+        name: "Svalbard And Jan Mayen",
+        tinRules: [],
+        tooltip: ""
+    },
+    SZ: {
+        name: "Swaziland",
+        tinRules: [],
+        tooltip: ""
+    },
+    SE: {
+        name: "Sweden",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{6}(-|\+)[0-9]{4}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SWEDEN"
+    },
+    CH: {
+        name: "Switzerland",
+        tinRules: [[tinString => testRegex(tinString, /(756)[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.SWITZERLAND"
+    },
+    SY: {
+        name: "Syrian Arab Republic",
+        tinRules: [],
+        tooltip: ""
+    },
+    TW: {
+        name: "Taiwan",
+        tinRules: [],
+        tooltip: ""
+    },
+    TJ: {
+        name: "Tajikistan",
+        tinRules: [],
+        tooltip: ""
+    },
+    TZ: {
+        name: "Tanzania",
+        tinRules: [],
+        tooltip: ""
+    },
+    TH: {
+        name: "Thailand",
+        tinRules: [],
+        tooltip: ""
+    },
+    TL: {
+        name: "Timor-Leste",
+        tinRules: [],
+        tooltip: ""
+    },
+    TG: {
+        name: "Togo",
+        tinRules: [],
+        tooltip: ""
+    },
+    TK: {
+        name: "Tokelau",
+        tinRules: [],
+        tooltip: ""
+    },
+    TO: {
+        name: "Tonga",
+        tinRules: [],
+        tooltip: ""
+    },
+    TT: {
+        name: "Trinidad And Tobago",
+        tinRules: [],
+        tooltip: ""
+    },
+    TN: {
+        name: "Tunisia",
+        tinRules: [],
+        tooltip: ""
+    },
+    TR: {
+        name: "Turkey",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{10}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.TURKEY"
+    },
+    TM: {
+        name: "Turkmenistan",
+        tinRules: [],
+        tooltip: ""
+    },
+    TC: {
+        name: "Turks And Caicos Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    TV: {
+        name: "Tuvalu",
+        tinRules: [],
+        tooltip: ""
+    },
+    UG: {
+        name: "Uganda",
+        tinRules: [],
+        tooltip: ""
+    },
+    UA: {
+        name: "Ukraine",
+        tinRules: [],
+        tooltip: ""
+    },
+    AE: {
+        name: "United Arab Emirates",
+        tinRules: [],
+        tooltip: ""
+    },
+    GB: {
+        name: "United Kingdom",
+        tinRules: [[tinString => testRegex(tinString, /[0-9|A-Za-z]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.UNITED.KINGDOM"
+    },
+    US: {
+        name: "United States",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{9}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.UNITED.STATES"
+    },
+    UM: {
+        name: "United States Outlying Islands",
+        tinRules: [],
+        tooltip: ""
+    },
+    UY: {
+        name: "Uruguay",
+        tinRules: [[tinString => testRegex(tinString, /[0-9]{8}/)]],
+        tooltip: "CUSTOM.VALIDATION.ERROR.INVALID.TIN.URUGUAY"
+    },
+    UZ: {
+        name: "Uzbekistan",
+        tinRules: [],
+        tooltip: ""
+    },
+    VU: {
+        name: "Vanuatu",
+        tinRules: [],
+        tooltip: ""
+    },
+    VE: {
+        name: "Venezuela",
+        tinRules: [],
+        tooltip: ""
+    },
+    VN: {
+        name: "Viet Nam",
+        tinRules: [],
+        tooltip: ""
+    },
+    VG: {
+        name: "Virgin Islands, British",
+        tinRules: [],
+        tooltip: ""
+    },
+    VI: {
+        name: "Virgin Islands, U.S.",
+        tinRules: [],
+        tooltip: ""
+    },
+    WF: {
+        name: "Wallis And Futuna",
+        tinRules: [],
+        tooltip: ""
+    },
+    EH: {
+        name: "Western Sahara",
+        tinRules: [],
+        tooltip: ""
+    },
+    YE: {
+        name: "Yemen",
+        tinRules: [],
+        tooltip: ""
+    },
+    ZM: {
+        name: "Zambia",
+        tinRules: [],
+        tooltip: ""
+    },
+    ZW: {
+        name: "Zimbabwe",
+        tinRules: [],
+        tooltip: ""
+    }
+};
+
+function testRegex(stringToCheck, regexLiteral) {
+    const regex = new RegExp("^" + regexLiteral.source + "$");
+    return regex.test(stringToCheck);
+}
+
+function modulus11CheckDigit(
+    stringToCheck,
+    checkDigitPosition,
+    weightingFactors = [10, 9, 8, 7, 6, 5, 4, 3, 2]
+) {
+    const digitsToCheck = stringToCheck
+        .substring(0, checkDigitPosition)
+        .split("");
+    const multooltipliedDigits = digitsToCheck.map(
+        (digit, index) =>
+            digit *
+            weightingFactors[weightingFactors.length - digitsToCheck.length + index]
+    );
+    const multooltipliedDigitsSum = multooltipliedDigits.reduce((a, b) => a + b);
+    const mod11Result = multooltipliedDigitsSum % 11;
+    if(mod11Result === 0) {
+        return 0;
+    } else {
+        return 11 - mod11Result;
+    }
+}
+
+module.exports = { countriesData };
